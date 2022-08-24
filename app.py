@@ -21,7 +21,11 @@ type_movies=movies.groupby("genres")["movieId"].sum().sort_values(ascending=Fals
 
 merged_left = pd.merge(left=movies, right=ratings, how='left', left_on='movieId', right_on='movieId')
 if option=='Popularity-Based Recommender System':
-     ge=st.text_input("Genre(g):","Comedy")
+     list_genre=np.array(merged_left["genres"])
+option = st.selectbox(
+"Select genre ",
+(list_genre))
+     #ge=st.text_input("Genre(g):","Comedy")
      th=st.text_input("Minimum reviews threshold(t):",100)
      re=st.text_input("Num recommendations (N) :",5)
      out=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
