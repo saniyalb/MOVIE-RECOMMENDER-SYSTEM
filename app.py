@@ -26,7 +26,7 @@ if option=='Popularity-Based Recommender System':
      #ge=st.text_input("Genre(g):","Comedy")
      th=st.text_input("Minimum reviews threshold(t):",100)
      re=st.text_input("Num recommendations (N) :",5)
-     out=merged_left[merged_left["genres"]==ge ].sort_values(by=["genres","rating","userId"], ascending=False)
+     out=merged_left[merged_left["genres"]==option ].sort_values(by=["genres","rating","userId"], ascending=False)
      out=out[out["userId"]>=int(th)]
      out["Num Reviews"]=out.userId.astype("int")
      out["Movie Title"]=out.title
