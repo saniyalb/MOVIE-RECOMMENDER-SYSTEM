@@ -3,12 +3,13 @@ Certification Project for Data science and Machine learning using Streamit and G
 ## Domain -OTT platform
 
 # Overview
-         Congratulations!!!! for making it so far. This is the Certification Project for Data Science and
+         
+Congratulations!!!! for making it so far. This is the Certification Project for Data Science and
 Machine Learning Internship Program and here we will use all the concepts learned so far in
 this course.
 
 # Context
-         Over the past two decades, there has been a monumental shift in how people access and
+Over the past two decades, there has been a monumental shift in how people access and
 consume video content. With the universal access to broadband internet, numerous platforms
 like YouTube, Netflix, and HBO Go emerged and steadily grew to prominence.
 Although not a household name in itself, OTT is the exact technology that made the streaming
