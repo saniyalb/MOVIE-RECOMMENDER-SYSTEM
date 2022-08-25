@@ -3,8 +3,7 @@ from IPython.display import display
 import streamlit as st
 import pandas as pd
 import numpy as np
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import linear_kernel
+
 
 option = st.selectbox(
      'Select Type of Recommender System',
@@ -15,13 +14,6 @@ st.title(option)
 movies=pd.read_csv("movies.csv")
 ratings=pd.read_csv("ratings.csv")
 type_movies=movies.groupby("genres")["movieId"].sum().sort_values(ascending=False)
-#st.write("List of Genres")
-#st.write(type_movies.drop(columns="movieId"))
-#title= st.text_input('Movie title', 'Life of Brian')
-#st.write('The current movie title is', title)
-cv=TfidfVectorizer()
-tfidf_matrix=cv.fit_transform(movies['genres'])
-cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
 
 
 merged_left = pd.merge(left=movies, right=ratings, how='left', left_on='movieId', right_on='movieId')
