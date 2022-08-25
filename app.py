@@ -9,7 +9,12 @@ import numpy as np
 option = st.selectbox(
      'Select Type of Recommender System',
      ('Popularity-Based Recommender System', 'Content-Based Recommender System', 'Collaborative Based Recommender System'))
-
+[theme]
+primaryColor="#F63366"
+backgroundColor="#FFFFFF"
+secondaryBackgroundColor="#F0F2F6"
+textColor="#262730"
+font="sans serif"
 
 st.title(option)
 movies=pd.read_csv("movies.csv")
