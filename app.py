@@ -19,6 +19,9 @@ type_movies=movies.groupby("genres")["movieId"].sum().sort_values(ascending=Fals
 #st.write(type_movies.drop(columns="movieId"))
 #title= st.text_input('Movie title', 'Life of Brian')
 #st.write('The current movie title is', title)
+cv=TfidfVectorizer()
+     tfidf_matrix=cv.fit_transform(movies['genres'])
+     cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
 
 
 merged_left = pd.merge(left=movies, right=ratings, how='left', left_on='movieId', right_on='movieId')
@@ -35,9 +38,7 @@ if option=='Popularity-Based Recommender System':
      final=out[["Movie Title","Average Movie Rating","Num Reviews"]]
      st.write(final.head(int(re)))
 elif option=='Content-Based Recommender System':
-     cv=TfidfVectorizer()
-     tfidf_matrix=cv.fit_transform(movies['genres'])
-     cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+     
      for i in range(0,len(movies)):
           Str = movies["title"][i]
           l = len(Str)
