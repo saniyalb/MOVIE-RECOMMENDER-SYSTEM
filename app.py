@@ -30,17 +30,15 @@ if option=='Popularity-Based Recommender System':
      final=out[["Movie Title","Average Movie Rating","Num Reviews"]]
      st.write(final.head(int(re)))
 elif option=='Content-Based Recommender System':
-     
      for i in range(0,len(movies)):
           Str = movies["title"][i]
           l = len(Str)
-          Remove_last = Str[:l]
+          Remove_last = Str[:l-7]
           movies["title"][i]=Remove_last
      n_movies=movies
      mv=st.text_input("Movie Title (t): ",'Jumanji')
      rec=st.text_input("Num recommendations (N):",5)
      movie=n_movies[n_movies["title"]==mv]
-     
      id1=movie["movieId"].tolist()
      id2=id1[0]
      genre=merged_left[merged_left["movieId"]==id2]
