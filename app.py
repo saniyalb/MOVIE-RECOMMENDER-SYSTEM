@@ -3,6 +3,8 @@ from IPython.display import display
 import streamlit as st
 import pandas as pd
 import numpy as np
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import linear_kernel
 
 option = st.selectbox(
      'Select Type of Recommender System',
@@ -33,10 +35,13 @@ if option=='Popularity-Based Recommender System':
      final=out[["Movie Title","Average Movie Rating","Num Reviews"]]
      st.write(final.head(int(re)))
 elif option=='Content-Based Recommender System':
+     cv=TfidfVectorizer()
+     tfidf_matrix=cv.fit_transform(movies['genres'])
+     cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
      for i in range(0,len(movies)):
           Str = movies["title"][i]
           l = len(Str)
-          Remove_last = Str[:l-7]
+          Remove_last = Str[:l]
           movies["title"][i]=Remove_last
      n_movies=movies
      mv=st.text_input("Movie Title (t): ",'Jumanji')
