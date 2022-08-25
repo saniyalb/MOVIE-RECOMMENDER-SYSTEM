@@ -20,8 +20,8 @@ type_movies=movies.groupby("genres")["movieId"].sum().sort_values(ascending=Fals
 #title= st.text_input('Movie title', 'Life of Brian')
 #st.write('The current movie title is', title)
 cv=TfidfVectorizer()
-     tfidf_matrix=cv.fit_transform(movies['genres'])
-     cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
+tfidf_matrix=cv.fit_transform(movies['genres'])
+cosine_sim = linear_kernel(tfidf_matrix, tfidf_matrix)
 
 
 merged_left = pd.merge(left=movies, right=ratings, how='left', left_on='movieId', right_on='movieId')
