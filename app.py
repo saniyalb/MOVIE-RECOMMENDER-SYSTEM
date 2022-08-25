@@ -38,7 +38,7 @@ elif option=='Content-Based Recommender System':
      for i in range(0,len(movies)):
           Str = movies["title"][i]
           l = len(Str)
-          Remove_last = Str[:7]
+          Remove_last = Str[:50]
           movies["title"][i]=Remove_last
      n_movies=movies
      mv=st.text_input("Movie Title (t): ",'Jumanji')
